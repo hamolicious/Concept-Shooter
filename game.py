@@ -55,12 +55,12 @@ def game(screen):
         screen.fill(colors.white)
         pygame.display.update()
         return 'gameover'
-    player.show(screen)
+    player.show(screen, mouse_pos)
     #endregion
 
     # region bullet controlls
     if mouse_pressed == (1,0,0) and fire_rate == max_fire_rate:
-        bullets.append(Bullet(player.pos.x, player.pos.y, mouse_pos.x, mouse_pos.y))
+        bullets.append(Bullet(player.spaw_bullet_at.x, player.spaw_bullet_at.y, mouse_pos.x, mouse_pos.y))
         fire_rate = 0
 
     if fire_rate < max_fire_rate:

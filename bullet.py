@@ -31,7 +31,7 @@ class Bullet():
             c = colors.bullet
         else:
             c = colors.non_lethal
-        pygame.draw.circle(screen, c, (self.pos.x, self.pos.y), self.size)
+        pygame.draw.circle(screen, c, (int(self.pos.x), int(self.pos.y)), self.size)
 
     def update(self):
         self.pos.add(self.vel)

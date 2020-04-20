@@ -14,8 +14,8 @@ class DotEnemy():
         x = randint(0, envir.size[0])
         y = randint(0, 300)
         self.pos = Vector(x, y)
-        self.w = 10
-        self.h = 10
+        self.w = 20
+        self.h = 20
         self.speed = 5
 
         self.is_live = True
@@ -24,6 +24,8 @@ class DotEnemy():
         self.rect = pygame.Rect(x, y, self.w, self.h)
 
         self.health = 3
+
+        self.image = pygame.transform.scale(pygame.image.load('data/enemies/enemy.png'), (self.w, self.h))
 
     def move_to_player(self, player_pos, enemies):
         dx = player_pos.x - self.pos.x
@@ -42,7 +44,7 @@ class DotEnemy():
         self.pos.add(vel)
 
     def show(self, screen):
-        pygame.draw.ellipse(screen, colors.red, self.rect)
+        screen.blit(self.image, (int(self.pos.x), int(self.pos.y)))
 
     def update(self, player_pos, bullets, enemies):
         self.rect = pygame.Rect(self.pos.x, self.pos.y, self.w, self.h)
